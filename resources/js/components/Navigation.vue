@@ -34,14 +34,29 @@
                         aria-haspopup="true"
                         aria-expanded="false"
                     >
+                        Subject
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a href="#" class="dropdown-item">New Subject</a>
+                        <a href="#" class="dropdown-item">Table of Notes</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
                         Note
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <router-link class="dropdown-item" :to="{name: 'notes.create'}">New Note</router-link>
+                        <router-link class="dropdown-item" :to="{name: 'notes.table'}">Table of Notes</router-link>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

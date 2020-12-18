@@ -1,6 +1,6 @@
 # Laravel 7 + Vue 2
 This is a basic project to learn about Laravel 7 + Vue 2.
-The project is contain vue-toasted for notification and validation form with Laravel validation.
+The project is contain vue-toasted for notification and validation form with Laravel validation. The project use Bootstrap 4 for css style.
 
 ### Usage
 ---
