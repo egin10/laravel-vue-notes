@@ -18,5 +18,9 @@ Route::group(['namespace' => 'Notes'], function () {
 
     Route::group(['prefix' => 'subjects'], function () {
         Route::get('', 'SubjectController@index');
+        Route::get('{subject:slug}', 'SubjectController@show')->name('subjects.show');
+        Route::patch('{subject:slug}/edit', 'SubjectController@update');
+        Route::post('create-new-subject', 'SubjectController@store');
+        Route::delete('{subject:slug}/delete', 'SubjectController@destroy');
     });
 });

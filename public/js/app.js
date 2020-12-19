@@ -2141,7 +2141,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var response;
+        var _yield$axios$get, data;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -2150,13 +2151,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return axios.get("/api/subjects");
 
               case 2:
-                response = _context.sent;
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this.subjects = data.data;
 
-                if (response.status === 200) {
-                  _this.subjects = response.data;
-                }
-
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -2395,7 +2394,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var response;
+        var _yield$axios$get, data;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -2404,13 +2404,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return axios.get("/api/subjects");
 
               case 2:
-                response = _context.sent;
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this.subjects = data.data;
 
-                if (response.status === 200) {
-                  _this.subjects = response.data;
-                }
-
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -2422,7 +2420,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var _yield$axios$get, data;
+        var _yield$axios$get2, data;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
@@ -2432,8 +2430,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return axios.get("/api/notes/".concat(_this2.$route.params.slug));
 
               case 2:
-                _yield$axios$get = _context2.sent;
-                data = _yield$axios$get.data;
+                _yield$axios$get2 = _context2.sent;
+                data = _yield$axios$get2.data;
                 _this2.form = data.note;
 
               case 5:
@@ -2657,6 +2655,502 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Create.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/subjects/Create.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        name: ''
+      },
+      loading: false,
+      theErrors: []
+    };
+  },
+  methods: {
+    store: function store() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this.loading = true;
+                _context.prev = 1;
+                _context.next = 4;
+                return axios.post("/api/subjects/create-new-subject", _this.form);
+
+              case 4:
+                response = _context.sent;
+
+                if (response.status === 200) {
+                  _this.form.name = "";
+                  _this.theErrors = [];
+
+                  _this.$toasted.show(response.data.message, {
+                    theme: 'outline',
+                    type: 'success',
+                    duration: 2000,
+                    action: {
+                      text: 'Close',
+                      onClick: function onClick(e, toastObject) {
+                        toastObject.goAway(0);
+                      }
+                    }
+                  });
+
+                  _this.loading = false;
+                }
+
+                _context.next = 13;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](1);
+                _this.loading = false;
+
+                _this.$toasted.show("Something went wrong...", {
+                  theme: 'outline',
+                  type: 'danger',
+                  duration: 2000,
+                  action: {
+                    text: 'Close',
+                    onClick: function onClick(e, toastObject) {
+                      toastObject.goAway(0);
+                    }
+                  }
+                });
+
+                _this.theErrors = _context.t0.response.data.errors;
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[1, 8]]);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Delete.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/subjects/Delete.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['slug'],
+  methods: {
+    destroySubject: function destroySubject() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var q, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                q = window.confirm("Are you sure ?");
+
+                if (!q) {
+                  _context.next = 6;
+                  break;
+                }
+
+                _context.next = 4;
+                return axios["delete"]("/api/subjects/".concat(_this.slug, "/delete"));
+
+              case 4:
+                response = _context.sent;
+
+                if (response.status === 200) {
+                  _this.$toasted.show(response.data.message, {
+                    theme: 'outline',
+                    type: 'success',
+                    duration: 2000,
+                    action: {
+                      text: 'Close',
+                      onClick: function onClick(e, toastObject) {
+                        toastObject.goAway(0);
+                      }
+                    }
+                  }); // Delete element <tr> html
+
+
+                  _this.$refs.deleteSubject.parentNode.parentNode.remove();
+                }
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Edit.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/subjects/Edit.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: [],
+      theErrors: [],
+      loading: false
+    };
+  },
+  mounted: function mounted() {
+    this.getSubject();
+  },
+  methods: {
+    getSubject: function getSubject() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("/api/subjects/".concat(_this.$route.params.slug));
+
+              case 2:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this.form = data.subject;
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    update: function update() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.loading = true;
+                _context2.next = 3;
+                return axios.patch("/api/subjects/".concat(_this2.$route.params.slug, "/edit"), _this2.form);
+
+              case 3:
+                response = _context2.sent;
+
+                if (response.status === 200) {
+                  _this2.$toasted.show(response.data.message, {
+                    theme: 'outline',
+                    type: 'success',
+                    duration: 2000,
+                    action: {
+                      text: 'Close',
+                      onClick: function onClick(e, toastObject) {
+                        toastObject.goAway(0);
+                      }
+                    }
+                  });
+
+                  _this2.$router.push({
+                    name: 'subjects.table'
+                  });
+                }
+
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Show.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/subjects/Show.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      subject: []
+    };
+  },
+  mounted: function mounted() {
+    this.getSubject();
+  },
+  methods: {
+    getSubject: function getSubject() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("/api/subjects/".concat(_this.$route.params.slug));
+
+              case 2:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this.subject = data.subject;
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Table.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/subjects/Table.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Delete__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Delete */ "./resources/js/views/subjects/Delete.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    DeleteSubject: _Delete__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      subjects: []
+    };
+  },
+  methods: {
+    getSubjects: function getSubjects() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("/api/subjects");
+
+              case 2:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this.subjects = data.data;
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  },
+  mounted: function mounted() {
+    this.getSubjects();
   }
 });
 
@@ -21911,7 +22405,51 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _vm._m(1),
+            _c("li", { staticClass: "nav-item dropdown" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link dropdown-toggle",
+                  attrs: {
+                    href: "#",
+                    id: "navbarDropdown",
+                    role: "button",
+                    "data-toggle": "dropdown",
+                    "aria-haspopup": "true",
+                    "aria-expanded": "false"
+                  }
+                },
+                [_vm._v("\n                    Subject\n                ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "dropdown-menu",
+                  attrs: { "aria-labelledby": "navbarDropdown" }
+                },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "dropdown-item",
+                      attrs: { to: { name: "subjects.create" } }
+                    },
+                    [_vm._v("New Subject")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "dropdown-item",
+                      attrs: { to: { name: "subjects.table" } }
+                    },
+                    [_vm._v("Table of Subjects")]
+                  )
+                ],
+                1
+              )
+            ]),
             _vm._v(" "),
             _c("li", { staticClass: "nav-item dropdown" }, [
               _c(
@@ -21960,7 +22498,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(2)
+          _vm._m(1)
         ]
       )
     ],
@@ -21987,45 +22525,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item dropdown" }, [
-      _c(
-        "a",
-        {
-          staticClass: "nav-link dropdown-toggle",
-          attrs: {
-            href: "#",
-            id: "navbarDropdown",
-            role: "button",
-            "data-toggle": "dropdown",
-            "aria-haspopup": "true",
-            "aria-expanded": "false"
-          }
-        },
-        [_vm._v("\n                    Subject\n                ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "dropdown-menu",
-          attrs: { "aria-labelledby": "navbarDropdown" }
-        },
-        [
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("New Subject")
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-            _vm._v("Table of Notes")
-          ])
-        ]
-      )
-    ])
   },
   function() {
     var _vm = this
@@ -23499,6 +23998,1209 @@ var staticRenderFns = [
         _c("th", [_vm._v("Subject")]),
         _vm._v(" "),
         _c("th", [_vm._v("Published")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Create.vue?vue&type=template&id=3573d0b5&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/subjects/Create.vue?vue&type=template&id=3573d0b5& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 offset-md-2" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [_vm._v("New Note")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "form",
+              {
+                attrs: { action: "#", method: "post" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.store($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Subject Name")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.name,
+                        expression: "form.name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "name" },
+                    domProps: { value: _vm.form.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "name", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.theErrors.name
+                    ? _c("div", { staticClass: "mt-2 text-danger" }, [
+                        _vm._v(_vm._s(_vm.theErrors.name[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-outline-danger",
+                    attrs: { to: { name: "subjects.table" } }
+                  },
+                  [_vm._v("Back")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  [
+                    _vm._v("\n\t\t\t\t\t\t\t\tSave\n\t\t\t\t\t\t\t\t"),
+                    _vm.loading
+                      ? [
+                          _c(
+                            "svg",
+                            {
+                              staticStyle: {
+                                margin: "auto",
+                                background: "none",
+                                display: "inline",
+                                "shape-rendering": "auto"
+                              },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                                width: "25px",
+                                height: "25px",
+                                viewBox: "0 0 100 100",
+                                preserveAspectRatio: "xMidYMid"
+                              }
+                            },
+                            [
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(0 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.9166666666666666s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(30 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.8333333333333334s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(60 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.75s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(90 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.6666666666666666s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(120 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.5833333333333334s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(150 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.5s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(180 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.4166666666666667s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(210 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.3333333333333333s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(240 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.25s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(270 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.16666666666666666s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(300 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.08333333333333333s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(330 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "0s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      : _vm._e()
+                  ],
+                  2
+                )
+              ],
+              1
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Delete.vue?vue&type=template&id=4d04c5e4&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/subjects/Delete.vue?vue&type=template&id=4d04c5e4& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "button",
+    {
+      ref: "deleteSubject",
+      staticClass: "btn btn-danger btn-sm",
+      on: {
+        click: function($event) {
+          $event.preventDefault()
+          return _vm.destroySubject($event)
+        }
+      }
+    },
+    [_vm._v("Delete")]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Edit.vue?vue&type=template&id=c37a89fa&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/subjects/Edit.vue?vue&type=template&id=c37a89fa& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 offset-md-2" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [_vm._v("Edit Subject")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "form",
+              {
+                attrs: { action: "#", method: "post" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.update($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.name,
+                        expression: "form.name"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "name" },
+                    domProps: { value: _vm.form.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "name", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.theErrors.name
+                    ? _c("div", { staticClass: "mt-2 text-danger" }, [
+                        _vm._v(_vm._s(_vm.theErrors.name[0]))
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-outline-danger",
+                    attrs: { to: { name: "subjects.table" } }
+                  },
+                  [_vm._v("Back")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  [
+                    _vm._v(
+                      "\n                                Update\n                                "
+                    ),
+                    _vm.loading
+                      ? [
+                          _c(
+                            "svg",
+                            {
+                              staticStyle: {
+                                margin: "auto",
+                                background: "none",
+                                display: "inline",
+                                "shape-rendering": "auto"
+                              },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                                width: "25px",
+                                height: "25px",
+                                viewBox: "0 0 100 100",
+                                preserveAspectRatio: "xMidYMid"
+                              }
+                            },
+                            [
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(0 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.9166666666666666s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(30 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.8333333333333334s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(60 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.75s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(90 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.6666666666666666s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(120 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.5833333333333334s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(150 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.5s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(180 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.4166666666666667s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(210 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.3333333333333333s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(240 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.25s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(270 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.16666666666666666s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(300 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "-0.08333333333333333s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _c(
+                                "g",
+                                { attrs: { transform: "rotate(330 50 50)" } },
+                                [
+                                  _c(
+                                    "rect",
+                                    {
+                                      attrs: {
+                                        x: "47",
+                                        y: "24",
+                                        rx: "3",
+                                        ry: "6",
+                                        width: "6",
+                                        height: "12",
+                                        fill: "#f5f5f5"
+                                      }
+                                    },
+                                    [
+                                      _c("animate", {
+                                        attrs: {
+                                          attributeName: "opacity",
+                                          values: "1;0",
+                                          keyTimes: "0;1",
+                                          dur: "1s",
+                                          begin: "0s",
+                                          repeatCount: "indefinite"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      : _vm._e()
+                  ],
+                  2
+                )
+              ],
+              1
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Show.vue?vue&type=template&id=2a937676&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/subjects/Show.vue?vue&type=template&id=2a937676& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("h1", [_vm._v(_vm._s(_vm.subject.name))]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "mt-4" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass: "btn btn-outline-danger",
+            attrs: { to: { name: "subjects.table" } }
+          },
+          [_vm._v("Back")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Table.vue?vue&type=template&id=25679425&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/subjects/Table.vue?vue&type=template&id=25679425& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("h3", [_vm._v("Table of Subject")]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("table", { staticClass: "table" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.subjects, function(subject, index) {
+              return _c("tr", { key: subject.id, staticClass: "text-center" }, [
+                _c("td", [_vm._v(_vm._s(index + 1))]),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "subjects.show",
+                            params: { slug: subject.slug }
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(subject.name))]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-warning btn-sm",
+                        attrs: {
+                          to: {
+                            name: "subjects.edit",
+                            params: { slug: subject.slug }
+                          }
+                        }
+                      },
+                      [_vm._v("Edit")]
+                    ),
+                    _vm._v(" "),
+                    _c("delete-subject", { attrs: { slug: subject.slug } })
+                  ],
+                  1
+                )
+              ])
+            }),
+            0
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "text-center" }, [
+        _c("th", [_vm._v("No.")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
@@ -38857,8 +40559,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_notes_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../views/notes/Table */ "./resources/js/views/notes/Table.vue");
 /* harmony import */ var _views_notes_Show__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../views/notes/Show */ "./resources/js/views/notes/Show.vue");
 /* harmony import */ var _views_notes_Edit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../views/notes/Edit */ "./resources/js/views/notes/Edit.vue");
+/* harmony import */ var _views_subjects_Table__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../views/subjects/Table */ "./resources/js/views/subjects/Table.vue");
+/* harmony import */ var _views_subjects_Create__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../views/subjects/Create */ "./resources/js/views/subjects/Create.vue");
+/* harmony import */ var _views_subjects_Show__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/subjects/Show */ "./resources/js/views/subjects/Show.vue");
+/* harmony import */ var _views_subjects_Edit__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/subjects/Edit */ "./resources/js/views/subjects/Edit.vue");
 
 
+ // Note Pages
+
+
+
+
+ // Subject Pages
 
 
 
@@ -38895,6 +40607,22 @@ __webpack_require__.r(__webpack_exports__);
     path: "/notes/:slug/edit",
     name: "notes.edit",
     component: _views_notes_Edit__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }, {
+    path: "/subjects",
+    name: "subjects.table",
+    component: _views_subjects_Table__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }, {
+    path: "/subjects/create",
+    name: "subjects.create",
+    component: _views_subjects_Create__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }, {
+    path: "/subjects/:slug",
+    name: "subjects.show",
+    component: _views_subjects_Show__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }, {
+    path: "/subjects/:slug/edit",
+    name: "subjects.edit",
+    component: _views_subjects_Edit__WEBPACK_IMPORTED_MODULE_10__["default"]
   }]
 });
 
@@ -39447,6 +41175,351 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Table_vue_vue_type_template_id_3dad82b1___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Table_vue_vue_type_template_id_3dad82b1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Create.vue":
+/*!************************************************!*\
+  !*** ./resources/js/views/subjects/Create.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Create_vue_vue_type_template_id_3573d0b5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Create.vue?vue&type=template&id=3573d0b5& */ "./resources/js/views/subjects/Create.vue?vue&type=template&id=3573d0b5&");
+/* harmony import */ var _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Create.vue?vue&type=script&lang=js& */ "./resources/js/views/subjects/Create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Create_vue_vue_type_template_id_3573d0b5___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Create_vue_vue_type_template_id_3573d0b5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/subjects/Create.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Create.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/views/subjects/Create.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Create.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Create.vue?vue&type=template&id=3573d0b5&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/views/subjects/Create.vue?vue&type=template&id=3573d0b5& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3573d0b5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Create.vue?vue&type=template&id=3573d0b5& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Create.vue?vue&type=template&id=3573d0b5&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3573d0b5___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Create_vue_vue_type_template_id_3573d0b5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Delete.vue":
+/*!************************************************!*\
+  !*** ./resources/js/views/subjects/Delete.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Delete_vue_vue_type_template_id_4d04c5e4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Delete.vue?vue&type=template&id=4d04c5e4& */ "./resources/js/views/subjects/Delete.vue?vue&type=template&id=4d04c5e4&");
+/* harmony import */ var _Delete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Delete.vue?vue&type=script&lang=js& */ "./resources/js/views/subjects/Delete.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Delete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Delete_vue_vue_type_template_id_4d04c5e4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Delete_vue_vue_type_template_id_4d04c5e4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/subjects/Delete.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Delete.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/views/subjects/Delete.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Delete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Delete.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Delete.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Delete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Delete.vue?vue&type=template&id=4d04c5e4&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/views/subjects/Delete.vue?vue&type=template&id=4d04c5e4& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Delete_vue_vue_type_template_id_4d04c5e4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Delete.vue?vue&type=template&id=4d04c5e4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Delete.vue?vue&type=template&id=4d04c5e4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Delete_vue_vue_type_template_id_4d04c5e4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Delete_vue_vue_type_template_id_4d04c5e4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Edit.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/views/subjects/Edit.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Edit_vue_vue_type_template_id_c37a89fa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit.vue?vue&type=template&id=c37a89fa& */ "./resources/js/views/subjects/Edit.vue?vue&type=template&id=c37a89fa&");
+/* harmony import */ var _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit.vue?vue&type=script&lang=js& */ "./resources/js/views/subjects/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Edit_vue_vue_type_template_id_c37a89fa___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Edit_vue_vue_type_template_id_c37a89fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/subjects/Edit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Edit.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/views/subjects/Edit.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Edit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Edit.vue?vue&type=template&id=c37a89fa&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/views/subjects/Edit.vue?vue&type=template&id=c37a89fa& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_c37a89fa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Edit.vue?vue&type=template&id=c37a89fa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Edit.vue?vue&type=template&id=c37a89fa&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_c37a89fa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Edit_vue_vue_type_template_id_c37a89fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Show.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/views/subjects/Show.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Show_vue_vue_type_template_id_2a937676___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Show.vue?vue&type=template&id=2a937676& */ "./resources/js/views/subjects/Show.vue?vue&type=template&id=2a937676&");
+/* harmony import */ var _Show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Show.vue?vue&type=script&lang=js& */ "./resources/js/views/subjects/Show.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Show_vue_vue_type_template_id_2a937676___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Show_vue_vue_type_template_id_2a937676___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/subjects/Show.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Show.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/views/subjects/Show.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Show.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Show.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Show.vue?vue&type=template&id=2a937676&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/views/subjects/Show.vue?vue&type=template&id=2a937676& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Show_vue_vue_type_template_id_2a937676___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Show.vue?vue&type=template&id=2a937676& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Show.vue?vue&type=template&id=2a937676&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Show_vue_vue_type_template_id_2a937676___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Show_vue_vue_type_template_id_2a937676___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Table.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/views/subjects/Table.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Table_vue_vue_type_template_id_25679425___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Table.vue?vue&type=template&id=25679425& */ "./resources/js/views/subjects/Table.vue?vue&type=template&id=25679425&");
+/* harmony import */ var _Table_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Table.vue?vue&type=script&lang=js& */ "./resources/js/views/subjects/Table.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Table_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Table_vue_vue_type_template_id_25679425___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Table_vue_vue_type_template_id_25679425___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/subjects/Table.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Table.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/views/subjects/Table.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Table_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Table.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Table.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Table_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/subjects/Table.vue?vue&type=template&id=25679425&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/views/subjects/Table.vue?vue&type=template&id=25679425& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Table_vue_vue_type_template_id_25679425___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Table.vue?vue&type=template&id=25679425& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/subjects/Table.vue?vue&type=template&id=25679425&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Table_vue_vue_type_template_id_25679425___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Table_vue_vue_type_template_id_25679425___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -7,26 +7,12 @@
                     <div class="card-body">
                         <form action="#" method="post" @submit.prevent="store">
                             <div class="form-group">
-                                <label for="title">Title</label>
-                                <input type="text" v-model="form.title" id="title" class="form-control"/>
-								<div v-if="theErrors.title" class="mt-2 text-danger">{{ theErrors.title[0] }}</div>
+                                <label for="name">Subject Name</label>
+                                <input type="text" v-model="form.name" id="name" class="form-control"/>
+								<div v-if="theErrors.name" class="mt-2 text-danger">{{ theErrors.name[0] }}</div>
                             </div>
 
-                            <div class="form-group">
-								<label for="subject_id">Subject</label>
-								<select v-model="form.subject_id" id="subject_id" class="form-control">
-									<option v-for="subject in subjects" :key="subject.id" :value="subject.id">{{ subject.name }}</option>
-								</select>
-								<div v-if="theErrors.subject_id" class="mt-2 text-danger">{{ theErrors.subject_id[0] }}</div>
-							</div>
-
-							<div class="form-group">
-								<label for="description">Description</label>
-								<textarea v-model="form.description" id="description" rows="5" class="form-control"></textarea>
-								<div v-if="theErrors.description" class="mt-2 text-danger">{{ theErrors.description[0] }}</div>
-							</div>
-
-							<router-link :to="{ name: 'notes.table' }" class="btn btn-outline-danger">Back</router-link>
+							<router-link :to="{ name: 'subjects.table' }" class="btn btn-outline-danger">Back</router-link>
 							<button type="submit" class="btn btn-primary">
 								Save
 								<template v-if="loading">
@@ -46,30 +32,19 @@ export default {
     data() {
         return {
             form: {
-				subject_id: '',
-				title: '',
-				description: '',
+				name: '',
 			},
 			loading: false,
-			subjects: [],
 			theErrors: [],
         };
     },
-    mounted() {
-        this.getSubjects();
-    },
-    methods: {
-        async getSubjects() {
-            let {data} = await axios.get("/api/subjects");
-			this.subjects = data.data;
-		},
-		
+    methods: {		
         async store() {
 			this.loading = true;
 			try {
-				let response = await axios.post("/api/notes/create-new-note", this.form)
+				let response = await axios.post("/api/subjects/create-new-subject", this.form)
 				if(response.status === 200) {
-					this.form.title = this.form.subject_id = this.form.description = "";
+					this.form.name  = "";
 					this.theErrors = [];
 					
 					this.$toasted.show(response.data.message, {
@@ -88,9 +63,9 @@ export default {
 				}
 
 			}catch(e) {
-				this.loading = false;
-				this.$toasted.show("Something went wrong...", {
-					theme : 'outline',
+                this.loading = false;
+                this.$toasted.show("Something went wrong...", {
+                    theme : 'outline',
 					type : 'danger',
 					duration : 2000,
 					action : {

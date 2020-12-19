@@ -37,8 +37,8 @@
                         Subject
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="#" class="dropdown-item">New Subject</a>
-                        <a href="#" class="dropdown-item">Table of Notes</a>
+                        <router-link :to="{ name: 'subjects.create' }" class="dropdown-item">New Subject</router-link>
+                        <router-link :to="{ name: 'subjects.table' }" class="dropdown-item">Table of Subjects</router-link>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

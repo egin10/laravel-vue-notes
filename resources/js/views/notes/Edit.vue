@@ -63,10 +63,8 @@ export default {
     },
     methods: {
         async getSubjects() {
-            let response = await axios.get("/api/subjects");
-            if (response.status === 200) {
-                this.subjects = response.data;
-            }
+            let {data} = await axios.get("/api/subjects");
+                this.subjects = data.data;
 		},
 		
         async getNote() {
